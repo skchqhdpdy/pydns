@@ -1,0 +1,5 @@
+['A:\\ctw\\cr.exe', 'skchqhdpdy.kro.kr', '_acme-challenge.skchqhdpdy.kro.kr', '229udGrYbhkXcJ1e4U9KwTNQ9dvfScW9L7IilLkBAcQ', 'ILoveDebian']
+['A:\\ctw\\cr.exe', '*.skchqhdpdy.kro.kr', '_acme-challenge.skchqhdpdy.kro.kr', 'yTPd1R4ffOXIri-v-xXcbYjPmNw0rT7lNvdDa3kWcKQ', 'ILoveDebian']
+['A:\\ctw\\cr.exe', '*.chtholly.kro.kr', '_acme-challenge.chtholly.kro.kr', 'CyqmwmI-z1mlO5MktkNGIsMDETTv0gdEt7FstJX0Usg', 'ILoveDebian']
+['A:\\ctw\\cr.exe', 'chtholly.kro.kr', '_acme-challenge.chtholly.kro.kr', '9NdGwpjCwDKFcpSXS35DEzX0cQq0IGrA9ReweStTtJY', 'ILoveDebian']
+['A:\\ctw\\cr.exe', '*.vpn.skchqhdpdy.kro.kr', '_acme-challenge.vpn.skchqhdpdy.kro.kr', 'KVklKCppQhBsNkf13hpf696HG-rrS0XuD5OLnRP0kEc', 'ILoveDebian']
