@@ -1,0 +1,35 @@
+services:
+  mysql:
+    image: mysql:9.4.0
+    ports:
+      - ${DB_PORT}:${DB_PORT}
+    environment:
+      MYSQL_USER: ${DB_USER}
+      MYSQL_PASSWORD: ${DB_PASS}
+      MYSQL_DATABASE: ${DB_NAME}
+      MYSQL_HOST: ${DB_HOST}
+      MYSQL_TCP_PORT: ${DB_PORT}
+      MYSQL_ROOT_PASSWORD: ${DB_PASS}
+    volumes:
+      - ./pydns.sql:/docker-entrypoint-initdb.d/init.sql:ro
+      - .db-data:/var/lib/mysql
+    healthcheck:
+      test: '/usr/bin/mysql --user=$$MYSQL_USER --password=$$MYSQL_PASSWORD --execute "SHOW DATABASES;"'
+      interval: 2s
+      timeout: 20s
+      retries: 10
+  
+  pydns:
+    image: pydns:latest
+    ports:
+      - "53:53/udp"
+      - "53:53/tcp"
+    depends_on:
+      mysql:
+        condition: service_healthy
+    tty: true
+    init: true
+    volumes:
+      - .:/srv/root
+    env_file:
+      - .env

@@ -7,12 +7,8 @@ from datetime import datetime
 import time
 from helpers import logUtils as log
 
-conf = config.config("config.ini")
-mmdbID = conf.config["mmdb"]["id"]
-mmdbKey = conf.config["mmdb"]["key"]
-
 def mmdbdl():
-    r = requests.get("https://download.maxmind.com/geoip/databases/GeoLite2-City/download?suffix=tar.gz", auth=(mmdbID, mmdbKey)).content
+    r = requests.get("https://download.maxmind.com/geoip/databases/GeoLite2-City/download?suffix=tar.gz", auth=(config.mmdb_id, config.mmdb_key)).content
     with open("mmdb.tar.gz", "wb") as f: f.write(r)
     with tarfile.open("mmdb.tar.gz", 'r:gz') as tar: tar.extractall("mmdb")
 

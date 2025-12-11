@@ -31,8 +31,8 @@ CREATE TABLE IF NOT EXISTS `records` (
 
 -- 테이블 데이터 pydns.records:~2 rows (대략적) 내보내기
 INSERT INTO `records` (`id`, `domain`, `record`, `value`) VALUES
-	(1, '1.0.0.127.in-addr.arpa.', 'A', 'pydns localhost IPv4'),
-	(2, '1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa.', 'A', 'pydns localhost IPv6');
+	(1, '1.0.0.127.in-addr.arpa.', 'PTR', 'pydns localhost IPv4'),
+	(2, '1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa.', 'PTR', 'pydns localhost IPv6');
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;

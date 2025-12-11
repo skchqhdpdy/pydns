@@ -1,1 +1,3 @@
 DNSQuery 에 직접 reply 받아서 처리해보기
+
+nslookup 타입 지정 안할때 A, AAAA 물어보는데 둘중 하나라도 없으면 없는거 재귀하러 돌아댕김

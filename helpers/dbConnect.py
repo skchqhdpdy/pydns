@@ -7,12 +7,11 @@ from helpers import logUtils as log
 
 class db:
     def __init__(self, connectMsg=True):
-        self.conf = config.config("config.ini")
-        self.DB_HOST = self.conf.config["db"]["host"]
-        self.DB_PORT = int(self.conf.config["db"]["port"])
-        self.DB_USERNAME = self.conf.config["db"]["username"]
-        self.DB_PASSWORD = self.conf.config["db"]["password"]
-        self.DB_DATABASE = self.conf.config["db"]["database"]
+        self.DB_HOST = config.DB_HOST
+        self.DB_PORT = config.DB_PORT
+        self.DB_USERNAME = config.DB_USER
+        self.DB_PASSWORD = config.DB_PASS
+        self.DB_DATABASE = config.DB_NAME
         self.connect(connectMsg)
 
     def connect(self, connectMsg=True):

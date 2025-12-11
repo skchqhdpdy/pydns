@@ -3,6 +3,7 @@ import threading
 from dnslib import DNSRecord, DNSHeader, DNSQuestion, RR, A, AAAA, CNAME, TXT, SRV, NS, SOA, PTR, DNAME, QTYPE, RCODE
 import time
 import traceback
+from helpers import config
 from helpers import logUtils as log
 from helpers import dbConnect
 #from helpers import drpc
@@ -28,11 +29,13 @@ rootServers = [
     ("A.ROOT-SERVERS.NET", 53)
 ]
 
-def IPv4(host='0.0.0.0', port=53):
+def IPv4(host='0.0.0.0', port=config.APP_PORT):
     sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM); sock.bind((host, port))
     while True: DNS(sock)
-def IPv6(host='::', port=53):
-    sock = socket.socket(socket.AF_INET6, socket.SOCK_DGRAM); sock.bind((host, port))
+def IPv6(host='::', port=config.APP_PORT):
+    sock = socket.socket(socket.AF_INET6, socket.SOCK_DGRAM)
+    sock.setsockopt(socket.IPPROTO_IPV6, socket.IPV6_V6ONLY, 1)
+    sock.bind((host, port))
     while True: DNS(sock)
 def DNS(sock):
     data, addr = sock.recvfrom(512)
