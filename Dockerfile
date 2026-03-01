@@ -9,7 +9,7 @@ RUN apt update && apt install --no-install-recommends -y \
     && rm -rf /var/lib/apt/lists/*
 
 RUN apt update && \
-    apt install -y default-mysql-client
+    apt install -y default-mysql-client iptables
 
 COPY requirements.txt ./requirements.txt
 
